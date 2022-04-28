@@ -1,3 +1,4 @@
+from pkgutil import iter_modules
 import scrapy
 from scrapy import Request
 from Douban_movie_top250.items import DoubanMovieTop250Item
@@ -24,4 +25,6 @@ class DoubanSpider(scrapy.Spider):
         sel = response.css('div#wrapper')
         item['name'] = sel.xpath(
             ".//div[@id='content']/h1/span[1]/text()").extract_first()
+        item['pic_link'] = sel.xpath(
+            ".//a[@class='nbgnbg']/img/@src").extract_first()
         yield item

@@ -17,10 +17,10 @@ NEWSPIDER_MODULE = 'Douban_movie_top250.spiders'
 #USER_AGENT = 'Douban_movie_top250 (+http://www.yourdomain.com)'
 
 # Obey robots.txt rules
-ROBOTSTXT_OBEY = True
+ROBOTSTXT_OBEY = False
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
-#CONCURRENT_REQUESTS = 32
+# CONCURRENT_REQUESTS = 16
 
 # Configure a delay for requests for the same website (default: 0)
 # See https://docs.scrapy.org/en/latest/topics/settings.html#download-delay
@@ -62,9 +62,10 @@ ROBOTSTXT_OBEY = True
 
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
-# ITEM_PIPELINES = {
-#    'Douban_movie_top250.pipelines.DoubanMovieTop250Pipeline': 300,
-# }
+ITEM_PIPELINES = {
+    'Douban_movie_top250.pipelines.DoubanMovieTop250Pipeline': 300,
+}
+IMAGES_STORE = 'download_images'
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html
@@ -87,4 +88,4 @@ ROBOTSTXT_OBEY = True
 #HTTPCACHE_IGNORE_HTTP_CODES = []
 #HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
 USER_AGENT = 'Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/535.24 (KHTML, like Gecko) Chrome/19.0.1055.1 Safari/535.24'
-FEED_EXPORT_FIELDS = ['name', 'introduce']
+# FEED_EXPORT_FIELDS = ['name', 'introduce']
